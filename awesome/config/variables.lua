@@ -23,7 +23,7 @@ local _M = {
 
   -- Default wallpaper
   -- wallpaper = themes_path .. "default/background.png",  -- Default AwesomeWM
-  wallpaper = "~/Wallpapers/catppuccin-dark-cat2.png",
+  wallpaper = "~/.config/awesome/theme/assets/wallpaper.png",
 
   -- Default username
   username = os.getenv("USER"):gsub("^%l", string.upper),
