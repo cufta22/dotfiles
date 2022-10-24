@@ -1,0 +1,18 @@
+configuration {
+    modi: "drun,power:rofi-power-menu --no-symbols,emoji:rofimoji --action copy --max-recent 0";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "🪶 Run";    
+    scroll-method: 1;
+    display-power: "Power menu";
+    display-emoji: "💀 Emoji";
+    sidebar-mode: true;
+    font: "JetBrains Mono NF 14";
+}
+
+@theme "./catppuccin/macchiato.rasi"
+
