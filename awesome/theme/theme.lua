@@ -21,7 +21,7 @@ local theme = {}
 theme.icon_theme = nil
 
 theme.wallpaper          = RC.vars.wallpaper
-theme.awesome_subicon    = config_path.."assets/lol.png"
+theme.awesome_subicon    = config_path.."assets/bar/awesome.png"
 
 theme.font          = RC.vars.font.."9" -- "sans 8"
 

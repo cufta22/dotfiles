@@ -1,14 +1,23 @@
 
-# AwesomeWM
+# Catppuccin rice
 
+### Awesome
 ![rice](./assets/awesome.png)
+
+### Qtile
+![rice](./assets/qtile.png)
+
 
 # Setup - Arch
 
-1. Install AwesomeWM
+1. Install window manager
     
     ``` shell
+    # Awesome
     yay -S awesome-git
+
+    # Qtile
+    yay -S qtile-git
     ```
 
 2. Install softwares
