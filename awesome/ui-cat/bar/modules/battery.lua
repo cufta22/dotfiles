@@ -2,7 +2,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local lain = require("lain")
 local gears = require("gears")
-local color = require("theme.colors")
+local color = require("ui-cat.theme.colors")
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 

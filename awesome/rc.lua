@@ -24,15 +24,10 @@ modkey = RC.vars.modkey
 require("config.notifications")
 
 -- Theme
-require("theme")
+require("ui-" .. RC.vars.global_theme .. ".theme")
 
 -- Layouts
 require("config.layouts")
-
--- Menu
--- Create a laucher widget and a main menu
-local menu = require("ui.menu")
-RC.mainmenu = awful.menu({ items = menu() }) -- Used in globalkeys
 
 -- Menubar configuration
 menubar.utils.terminal = RC.vars.terminal
@@ -45,9 +40,13 @@ require("config.bindings-keys")
 require("config.rules")
 
 -- UI
-require("ui.bar")
-require("ui.powermenu")
-require("ui.wallpaper")
+require("ui-" .. RC.vars.global_theme .. ".bar")
+require("ui-" .. RC.vars.global_theme .. ".powermenu")
+require("ui-" .. RC.vars.global_theme .. ".wallpaper")
+
+-- Create a laucher widget and a main menu
+local menu = require("ui-" .. RC.vars.global_theme .. ".menu")
+RC.mainmenu = awful.menu({ items = menu() }) -- Used in globalkeys
 
 -- Signals
 require("config.signals")

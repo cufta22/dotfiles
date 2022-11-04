@@ -1,9 +1,9 @@
-local awful = require('awful')
-local wibox = require('wibox')
-local gears = require('gears')
-local beautiful = require('beautiful')
+local awful = require("awful")
+local wibox = require("wibox")
+local gears = require("gears")
+local beautiful = require("beautiful")
 
-local color = require('theme.colors')
+local color = require("ui-cat.theme.colors")
 
 local tag_colors = {
     ['1'] = color['peach'],

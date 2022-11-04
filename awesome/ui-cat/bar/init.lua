@@ -4,23 +4,23 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 
 local helpers = require("helpers")
-local color = require("theme.colors")
-local utils = require("ui.bar.utils")
+local color = require("ui-cat.theme.colors")
+local utils = require("ui-cat.bar.utils")
 
 local dpi = xresources.apply_dpi
 
 local widgets = {
-  get_taglist    = require("ui.bar.modules.tags"),
-  get_tasklist   = require("ui.bar.modules.tasks"),
-  get_layoutbox  = require("ui.bar.modules.layoutbox"),
+  get_taglist    = require("ui-cat.bar.modules.tags"),
+  get_tasklist   = require("ui-cat.bar.modules.tasks"),
+  get_layoutbox  = require("ui-cat.bar.modules.layoutbox"),
 
-  clock          = require("ui.bar.modules.clock"),
-  volume         = require("ui.bar.modules.volume"),
-  battery        = require("ui.bar.modules.battery"),
-  brightness     = require("ui.bar.modules.brightness"),
+  clock          = require("ui-cat.bar.modules.clock"),
+  volume         = require("ui-cat.bar.modules.volume"),
+  battery        = require("ui-cat.bar.modules.battery"),
+  brightness     = require("ui-cat.bar.modules.brightness"),
 
-  power          = require("ui.bar.modules.power"),
-  dashboard      = require("ui.bar.modules.dashboard"),
+  power          = require("ui-cat.bar.modules.power"),
+  dashboard      = require("ui-cat.bar.modules.dashboard"),
 }
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -37,7 +37,7 @@ awful.screen.connect_for_each_screen(function(s)
     screen   = s,
     width    = s.geometry.width - beautiful.useless_gap * 4,
     height   = dpi(40),
-    bg       = color["crust"],
+    bg       = color["base"],
     shape    = helpers.mkroundedrect(beautiful.useless_gap)
   })
 

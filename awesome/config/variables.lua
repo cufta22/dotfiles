@@ -9,7 +9,7 @@ local _M = {
 
   -- Editors
   editor = os.getenv("EDITOR") or "nano",
-  editor_gui = "codium" or "nano",
+  editor_gui = "codium",
 
   -- Default file manager
   file_manager = "nemo",
@@ -23,13 +23,18 @@ local _M = {
 
   -- Default wallpaper
   -- wallpaper = themes_path .. "default/background.png",  -- Default AwesomeWM
-  wallpaper = "~/.config/awesome/theme/assets/wallpaper.png",
+  wallpaper = "~/dotfiles/Wallpapers/catppuccin-apple.png",
 
   -- Default username
   username = os.getenv("USER"):gsub("^%l", string.upper),
 
   -- Default font
   font = "Roboto, Regular ",
+
+  -- Awesome rice theme
+  -- Available: 1. Catppuccin         - "cat"
+  --            2. League of Legends  - "bnw"
+  global_theme = "cat"
 }
 
 return _M

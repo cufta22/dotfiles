@@ -1,7 +1,7 @@
 local naughty = require("naughty")
-local beautiful = require('beautiful')
-local helpers = require('helpers')
-local color = require('theme.colors')
+local beautiful = require("beautiful")
+local helpers = require("helpers")
+local color = require("ui-" .. RC.vars.global_theme .. ".theme.colors")
 
 local dpi = beautiful.xresources.apply_dpi
 

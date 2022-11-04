@@ -4,7 +4,7 @@ local lain = require("lain")
 local gears = require("gears")
 local xresources = require("beautiful.xresources")
 
-local color = require("theme.colors")
+local color = require("ui-cat.theme.colors")
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 

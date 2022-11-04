@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "ui-" .. RC.vars.global_theme .. "/theme/theme.lua")
 
 -- if (RC.vars.wallpaper) then
 --     local wallpaper = RC.vars.wallpaper

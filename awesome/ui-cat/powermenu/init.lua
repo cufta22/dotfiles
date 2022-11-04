@@ -1,13 +1,14 @@
-local awful = require 'awful'
-local wibox = require 'wibox'
-local gears = require 'gears'
-local beautiful = require 'beautiful'
-local helpers = require 'helpers'
-local color = require 'theme.colors'
+local awful = require "awful"
+local wibox = require "wibox"
+local gears = require "gears"
+local beautiful = require "beautiful"
+local helpers = require "helpers"
+
+local color = require("ui-cat.theme.colors")
 
 local dpi = beautiful.xresources.apply_dpi
 
-require 'ui.powermenu.listener'
+require 'ui-cat.powermenu.listener'
 
 local username = wibox.widget {
     markup = '...',

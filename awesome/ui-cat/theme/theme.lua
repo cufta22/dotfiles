@@ -3,13 +3,13 @@ local gfs = require("gears.filesystem")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 
-local color = require("theme.colors")
+local color = require("ui-cat.theme.colors")
 
 awful.util = require("awful.util")
 
 local dpi = xresources.apply_dpi
 local themes_path = gfs.get_themes_dir()
-local config_path = awful.util.getdir("config") .. "/theme/"
+local config_path = awful.util.getdir("config") .. "/ui-cat/theme/"
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- default variables
@@ -80,7 +80,6 @@ theme.menu_fg_focus  = color['text']
 
 theme.menu_border_color = color['xgold4']
 theme.menu_border_width = 1
-
 
 -- You can use your own layout icons like this:
 -- theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
