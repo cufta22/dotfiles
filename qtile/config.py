@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
+
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, hook, Screen, KeyChord
 from libqtile.lazy import lazy
@@ -298,10 +300,9 @@ screens = [
                 widget.CurrentLayoutIcon(
                     padding  = 0,
                     scale    = 0.6,
-                    # Can't get this to work
-                    # custom_icon_paths = [
-                    #     '~/.config/qtile/assets/layout', 
-                    # ]
+                    custom_icon_paths = [
+                        os.path.expanduser("~/.config/qtile/assets/layout/"),
+                    ],
                 ),
 
                 widget.Image(
