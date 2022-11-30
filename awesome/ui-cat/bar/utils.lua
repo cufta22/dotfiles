@@ -42,7 +42,7 @@ H.systray_wrap = function ( widget )
         left   = 12,
         top    = 4,
         bottom = 4,
-        right  =12,
+        right  = 12,
         widget = wibox.container.margin,
       },
       bg            = color["base"],

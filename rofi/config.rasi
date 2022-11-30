@@ -1,18 +1,17 @@
 configuration {
-    modi: "drun,power:rofi-power-menu --no-symbols,emoji:rofimoji --action copy --max-recent 0,1pass:./.config/rofi/modules/1pass.sh -show 1pass";
-    show-icons: true;
-    terminal: "alacritty";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-drun: "🪶 Run";    
-    scroll-method: 1;
-    display-power: "Power menu";
-    display-emoji: "💀 Emoji";
-    display-1pass: "🔑 1Pass";
-    sidebar-mode: true;
-    font: "JetBrains Mono NF 14";
+    modi:                   "drun,power:./.config/rofi/modules/powermenu.sh --no-symbols,emoji:rofimoji --action copy --max-recent 0";
+    show-icons:             true;
+    terminal:               "alacritty";
+    drun-display-format:    "{icon} {name}";
+    location:               0;
+    disable-history:        false;
+    hide-scrollbar:         true;
+    scroll-method:          1;
+    display-drun:           "🪶 Run";    
+    display-power:          "🔘 Power menu";
+    display-emoji:          "💀 Emoji";
+    sidebar-mode:           true;
+    font:                   "JetBrains Mono NF 14";
 }
 
 @theme "./themes/macchiato.rasi"

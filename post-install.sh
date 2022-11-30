@@ -14,48 +14,47 @@ cd yay-git
 makepkg -si --noconfirm
 
 PKGS=(
-        # NETWORKING
-        'wpa_supplicant'
-        'network-manager-applet'
+    # NETWORKING
+    'wpa_supplicant'
+    'network-manager-applet'
 
-        # AUDIO
-        'pipewire'
-        'pipewire-alsa'
-        'pipewire-pulse'
-        'alsa-utils'
-        'pasystray'
-        'playerctl'
+    # AUDIO
+    'pipewire'
+    'pipewire-alsa'
+    'pipewire-pulse'
+    'alsa-utils'
+    'pasystray'
+    'playerctl'
 
-        # RICE
-        'alacritty'
-        'picom-ibhagwan-git'
-        'neofetch'
-        'rofi'
-        'rofi-power-menu'
-        'rofimoji'
-        'lain'
-        'catppuccin-gtk-theme'
-        'papirus-icon-theme'
-        'ttf-roboto'
+    # RICE
+    'alacritty'
+    'picom-ibhagwan-git'
+    'neofetch'
+    'rofi'
+    'rofi-power-menu'
+    'rofimoji'
+    'lain-git'
+    'catppuccin-gtk-theme'
+    'papirus-icon-theme'
+    'ttf-roboto'
 
-        # GOODIES
-        'firefox'
-        'librewolf-git'
-        'transmission-qt'
-        'apple-fonts'
-        'betterdiscord-installer'
-        'discord-canary-electron-bin'
-        'lxsession'
-        'lxappearance'
-        'xfce4-power-manager'
-        'xss-lock'
-        'i3lock-fancy-git'
-        'xclip'
-        'brightnessctl'
-        'nemo'
-        'nemo-fileroller'
-        'nemo-preview'
-        'nemo-terminal'
+    # GOODIES
+    'librewolf-git'
+    'transmission-qt'
+    'discord-canary-electron-bin'
+    'lxsession'
+    'lxappearance'
+    'xfce4-power-manager'
+    'xss-lock'
+    'i3lock-fancy-git'
+    'xclip'
+    'brightnessctl'
+    'nemo'
+    'nemo-fileroller'
+    'nemo-preview'
+    'nemo-terminal'
+    'vscodium-bin'
+    'remmina'
 )
 
 for PKG in "${PKGS[@]}"; do

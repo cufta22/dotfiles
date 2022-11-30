@@ -5,6 +5,5 @@ tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
         awful.layout.suit.tile,             -- 1:
         awful.layout.suit.floating,         -- 2:
-        awful.layout.suit.spiral,           -- 3:
     })
 end)

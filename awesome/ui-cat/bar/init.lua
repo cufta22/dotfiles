@@ -34,6 +34,7 @@ awful.screen.connect_for_each_screen(function(s)
   -- Create the wibox
   s.wibox = awful.wibar({
     position = "top",
+    type     = "toolbar",
     screen   = s,
     width    = s.geometry.width - beautiful.useless_gap * 4,
     height   = dpi(40),

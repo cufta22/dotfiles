@@ -18,7 +18,7 @@ end
 
 -- colorize a text using pango markup
 function helpers.get_colorized_markup(content, fg)
-    fg = fg or beautiful.blue
+    fg = fg or beautiful.fg_normal
     content = content or ''
 
     return '<span foreground="' .. fg .. '">' .. content .. '</span>'

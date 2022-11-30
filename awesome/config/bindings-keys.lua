@@ -85,9 +85,13 @@ awful.keyboard.append_global_keybindings({
     -- Launcher
 
     awful.key({ modkey },            "r", function () awful.spawn("rofi -show drun") end,
-              {description = "run Rofi", group = "launcher"}),
-    awful.key({ modkey },            "p", function () awesome.emit_signal('powermenu::toggle') end,
-              {description = "run Rofi", group = "launcher"}),
+              {description = "open Rofi", group = "launcher"}),
+    awful.key({ modkey            }, "/", function () awesome.emit_signal('powermenu::toggle') end,
+              {description = "open Power menu", group = "launcher"}),
+    awful.key({ modkey            }, ",", function () awesome.emit_signal('dashboard::toggle') end,
+              {description = "open Dashboard", group = "launcher"}),
+    awful.key({ modkey            }, ".", function () awesome.emit_signal('systray::toggle') end,
+              {description = "open Systray", group = "launcher"}),
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),

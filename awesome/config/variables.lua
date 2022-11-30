@@ -23,7 +23,8 @@ local _M = {
 
   -- Default wallpaper
   -- wallpaper = themes_path .. "default/background.png",  -- Default AwesomeWM
-  wallpaper = "~/dotfiles/Wallpapers/catppuccin-apple.png",
+  -- wallpaper = "~/dotfiles/Wallpapers/catppuccin-cat.png",  -- Catppuccin
+  wallpaper = "~/dotfiles/Wallpapers/mi-black.png",  -- Mi
 
   -- Default username
   username = os.getenv("USER"):gsub("^%l", string.upper),
@@ -33,8 +34,8 @@ local _M = {
 
   -- Awesome rice theme
   -- Available: 1. Catppuccin         - "cat"
-  --            2. League of Legends  - "bnw"
-  global_theme = "cat"
+  --            2. Xiaomi             - "mi"
+  global_theme = "mi"
 }
 
 return _M

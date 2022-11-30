@@ -41,8 +41,17 @@ require("config.rules")
 
 -- UI
 require("ui-" .. RC.vars.global_theme .. ".bar")
-require("ui-" .. RC.vars.global_theme .. ".powermenu")
 require("ui-" .. RC.vars.global_theme .. ".wallpaper")
+
+-- UI - theme specific
+if RC.vars.global_theme == "cat" then
+    require("ui-cat.powermenu")
+end
+
+if RC.vars.global_theme == "mi" then
+    require("ui-mi.dashboard")
+    require("ui-mi.systray")
+end
 
 -- Create a laucher widget and a main menu
 local menu = require("ui-" .. RC.vars.global_theme .. ".menu")
@@ -50,6 +59,7 @@ RC.mainmenu = awful.menu({ items = menu() }) -- Used in globalkeys
 
 -- Signals
 require("config.signals")
+require("signal.network")
 
 -- Autostart applications
 require("config.autostart")
