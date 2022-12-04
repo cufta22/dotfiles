@@ -55,6 +55,8 @@ PKGS=(
     'nemo-terminal'
     'vscodium-bin'
     'remmina'
+    'xorg-xset'
+    'xorg-xinput'
 )
 
 for PKG in "${PKGS[@]}"; do

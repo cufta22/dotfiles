@@ -42,6 +42,7 @@ require("config.rules")
 -- UI
 require("ui-" .. RC.vars.global_theme .. ".bar")
 require("ui-" .. RC.vars.global_theme .. ".wallpaper")
+-- require("ui-" .. RC.vars.global_theme .. ".titlebar")
 
 -- UI - theme specific
 if RC.vars.global_theme == "cat" then
