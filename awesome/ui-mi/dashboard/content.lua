@@ -10,7 +10,9 @@ local card_update = require("ui-mi.dashboard.modules.card-update")
 local card_bluetooth = require("ui-mi.dashboard.modules.card-bluetooth")
 
 local action_brightness = require("ui-mi.dashboard.modules.action-brightness")
-local action_controls = require("ui-mi.dashboard.modules.action-controls")
+local action_controls1 = require("ui-mi.dashboard.modules.action-controls1")
+local action_controls2 = require("ui-mi.dashboard.modules.action-controls2")
+local action_controls3 = require("ui-mi.dashboard.modules.action-controls3")
 
 local widget_stats = require("ui-mi.dashboard.modules.stats")
 local widget_earbuds = require("ui-mi.dashboard.modules.earbuds")
@@ -33,13 +35,15 @@ local mainbox = wibox.widget {
                 {
                     card_user,
                     card_bluetooth,
-                    action_controls,
+                    action_controls1,
+                    action_controls3,
                     spacing = beautiful.useless_gap * 2,
                     layout = wibox.layout.fixed.vertical,
                 },
                 {
                     card_wifi,
                     card_update,
+                    action_controls2,
                     action_brightness,
                     spacing = beautiful.useless_gap * 2,
                     layout = wibox.layout.fixed.vertical,
@@ -47,9 +51,9 @@ local mainbox = wibox.widget {
                 spacing = beautiful.useless_gap * 2,
                 layout = wibox.layout.flex.horizontal,
             },
-            
+
             wibox.container.margin(nil, 0, 0, beautiful.useless_gap * 2, 0),
-           
+
             {
                 widget_stats,
                 widget_earbuds,

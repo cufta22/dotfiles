@@ -20,3 +20,5 @@ run_once("xfce4-power-manager")   -- Power Management
 
 run_once("chmod +x ~/dotfiles/awesome/scripts/bluetooth.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/toggle-network.sh")
+run_once("chmod +x ~/dotfiles/awesome/scripts/redshift-adjust.sh")
+run_once("chmod +x ~/dotfiles/awesome/scripts/redshift-off.sh")

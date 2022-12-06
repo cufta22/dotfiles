@@ -7,6 +7,9 @@ local _M = {
   -- terminal = "xterm",
   terminal = "alacritty",
 
+  -- Used to spawn terminal for updating system
+  terminal_hold = "alacritty --hold -e",
+
   -- Editors
   editor = os.getenv("EDITOR") or "nano",
   editor_gui = "codium",

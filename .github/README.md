@@ -10,7 +10,7 @@
 
 # Setup - Arch
 
-1. Install window manager
+## 1. Install window manager
 
    ```shell
    # Awesome
@@ -20,7 +20,7 @@
    yay -S qtile-git
    ```
 
-2. Install softwares
+## 2. Install softwares
 
    ```shell
 
@@ -32,12 +32,12 @@
    yay -S catppuccin-gtk-theme-mocha catppuccin-gtk-theme-macchiato catppuccin-gtk-theme-frappe catppuccin-gtk-theme-latte
    ```
 
-3. Themes
+## 3. Themes
 
    - [Papirus - Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
    - [Catppuccin - Gtk theme](https://github.com/catppuccin/catppuccin)
 
-4. Bluetooth headphones
+## 4. Bluetooth headphones
 
 Available devices for now:
 
@@ -75,4 +75,15 @@ To enable battery percentage display
     Alias: Redmi Buds 4 Pro
     ...
     Battery Percentage: 0x3c (60)
+```
+
+## 5. Reading/Bedtime mode
+
+Redshift adjusts the color temperature of your screen,
+To use redshift from dashboard install the following
+
+```shell
+
+   sudo pacman -S redshift
+
 ```

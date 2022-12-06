@@ -2,6 +2,8 @@
 
 # chmod +x ~/dotfiles/post-install.sh
 
+rmmod pcspkr
+
 # Installing dependencies
 echo "Installing dependencies"
 
@@ -9,7 +11,7 @@ sudo pacman -Sy --noconfirm git
 
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
-sudo chown -R ski:ski ./yay-git
+sudo chown -R nxc:arch ./yay-git
 cd yay-git
 makepkg -si --noconfirm
 
@@ -57,6 +59,7 @@ PKGS=(
     'remmina'
     'xorg-xset'
     'xorg-xinput'
+    'redshift'
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -69,13 +72,4 @@ echo "Downloading dotfiles"
 cd ~
 git clone https://github.com/CUFTA22/dotfiles
 
-# Symlink dots
-
-mydotfiles=$HOME/dotfiles
-
-ln -s $mydotfiles/alacritty  ~/.config
-ln -s $mydotfiles/neofetch   ~/.config
-ln -s $mydotfiles/awesome    ~/.config
-ln -s $mydotfiles/picom      ~/.config
-ln -s $mydotfiles/rofi       ~/.config
-ln -s $mydotfiles/cava       ~/.config
+sh ~/dotfiles/symlink.sh

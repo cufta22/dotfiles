@@ -78,6 +78,8 @@ local bluetooth_card = util.make_card({
 }, color["blue700"], false)
 
 bluetooth_card:add_button(awful.button({}, 1, function ()
+    bluetooth_card.active = not bluetooth_card.active
+
     bluetooth_signal.toggle()
 end))
 

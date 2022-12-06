@@ -3,6 +3,7 @@ local helpers = require("helpers")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local awful = require("awful")
+local naughty = require("naughty")
 
 local dpi = beautiful.xresources.apply_dpi
 local util = require("ui-mi.dashboard.modules.util")
@@ -12,6 +13,9 @@ local gfs = gears.filesystem
 
 local icon_wifi_on = gears.color.recolor_image(beautiful.dashboard_wifi, color["white"])
 local icon_wifi_off = gears.color.recolor_image(beautiful.dashboard_wifi_off, color["white"])
+local icon_wifi_vpn = gears.color.recolor_image(beautiful.dashboard_wifi_vpn, color["white"])
+
+local get_ssid = "iwgetid -r"
 
 -- dynamic content
 local wifi_name = wibox.widget {
@@ -74,21 +78,33 @@ local wifi_card = util.make_card({
 }, color["blue700"], false)
 
 wifi_card:add_button(awful.button({}, 1, function ()
+    awful.spawn.easy_async_with_shell(get_ssid, function (out)
+        wifi_card.active = helpers.trim(out) ~= ''
+    end)
+
     awful.spawn('bash ' .. gfs.get_configuration_dir() .. 'scripts/toggle-network.sh')
 end))
 
 awesome.connect_signal('network::connected', function (is_connected)
     wifi_card.active = is_connected
 
-    awful.spawn.easy_async_with_shell("nmcli -t -f NAME connection show --active", function (name)
-        local trimmed_name = helpers.trim(name):gsub("-", "")
-        local new_name = string.len(trimmed_name) > 1 and trimmed_name or "Wi-Fi"
+    awful.spawn.easy_async_with_shell("nmcli -f NAME,TYPE connection show --active | grep 'wifi'", function (output1)
+        awful.spawn.easy_async_with_shell("nmcli -f NAME,TYPE connection show --active | grep 'vpn'", function (output2)
+            local name_WiFi = output1:gsub("%s+", ""):gsub("wifi", "")
+            local name_VPN = output2:gsub("%s+", ""):gsub("vpn", "")
 
-        wifi_name:set_markup_silently(new_name)
+            local name_Network = string.len(name_VPN) > 1 and name_WiFi or name_WiFi
+            local new_name = string.len(name_Network) > 1 and name_Network or "Wi-Fi"
+
+            local new_status = is_connected and string.len(name_VPN) > 1 and "Connected | VPN" or "Connected" or "Off"
+
+            local new_icon = is_connected and string.len(name_VPN) > 1 and icon_wifi_vpn or icon_wifi_on or icon_wifi_off
+
+            wifi_name:set_markup_silently(new_name)
+            wifi_status:set_markup_silently(new_status)
+            wifi_icon:set_image(new_icon)
+        end)
     end)
-
-    wifi_icon:set_image(is_connected and icon_wifi_on or icon_wifi_off)
-    wifi_status:set_markup_silently(is_connected and "Connected" or "Off")
 end)
 
 return wifi_card

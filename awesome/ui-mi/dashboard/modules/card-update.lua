@@ -8,6 +8,8 @@ local dpi = beautiful.xresources.apply_dpi
 local util = require("ui-mi.dashboard.modules.util")
 local color = require("ui-mi.theme.colors")
 
+local gfs = gears.filesystem
+
 local icon_update_on = gears.color.recolor_image(beautiful.dashboard_update, color["white"])
 local icon_update_off = gears.color.recolor_image(beautiful.dashboard_update_off, color["white"])
 
@@ -72,19 +74,31 @@ local update_card = util.make_card({
 }, color["yellow800"], false)
 
 update_card:add_button(awful.button({}, 1, function ()
-    -- Check for update
-    -- run pacman -Syyu if available
+    awful.spawn.easy_async_with_shell("pacman -Qu | wc -l", function (count)
+        local has_updates = tonumber(count) > 0
+
+        if has_updates then
+            update_card.active = false
+
+            awful.spawn(RC.vars.terminal_hold .. ' sudo pacman -Syyu')
+        end
+    end)
 end))
 
 gears.timer {
-    timeout = 100,
+    timeout = 4,
     call_now = true,
     autostart = true,
     callback = function ()
-        awful.spawn.easy_async_with_shell("nmcli -t -f NAME connection show --active", function (name)
-            -- Check for update
-            -- change text
-            update_card.active = true
+        awful.spawn.easy_async_with_shell("pacman -Qu | wc -l", function (count)
+            local has_updates = tonumber(count) > 0
+            
+            update_card.active = has_updates
+
+            update_name:set_markup_silently(has_updates and "Update available" or "No updates :(")
+            update_status:set_markup_silently(has_updates and "Click to update now" or "Check in a few hours")
+
+            update_icon:set_image(has_updates and icon_update_on or icon_update_off)
         end)
     end
 }

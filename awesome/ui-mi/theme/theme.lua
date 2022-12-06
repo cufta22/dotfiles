@@ -128,13 +128,26 @@ theme.moon                       = config_path.."assets/bar/moon.png"
 theme.headphones                 = config_path.."assets/dashboard/headset.png"
 
 theme.dashboard_user             = config_path.."assets/bar/dashboard_user.png"
+
 theme.dashboard_wifi             = config_path.."assets/bar/dashboard_wifi.png"
 theme.dashboard_wifi_off         = config_path.."assets/bar/dashboard_wifi_off.png"
+theme.dashboard_wifi_vpn         = config_path.."assets/bar/dashboard_wifi_vpn.png"
+
 theme.dashboard_bluetooth        = config_path.."assets/bar/dashboard_bluetooth.png"
 theme.dashboard_bluetooth_off    = config_path.."assets/bar/dashboard_bluetooth_off.png"
 
 theme.dashboard_update           = config_path.."assets/dashboard/update_on.png"
 theme.dashboard_update_off       = config_path.."assets/dashboard/update_off.png"
+
+theme.dashboard_redshift         = config_path.."assets/bar/dashboard_redshift.png"
+
+theme.dashboard_lock             = config_path.."assets/bar/dashboard_lock.png"
+
+theme.mode_bedtime               = config_path.."assets/dashboard/mode_bedtime.png"
+theme.mode_airplane              = config_path.."assets/dashboard/mode_airplane.png"
+theme.action_screenshot          = config_path.."assets/dashboard/action_screenshot.png"
+theme.action_theme               = config_path.."assets/dashboard/action_theme.png"
+theme.action_kdeconnect          = config_path.."assets/dashboard/action_kdeconnect.png"
 
 theme.redmi_buds_4_pro           = config_path.."assets/dashboard/redmi-buds-4-pro.png"
 theme.redmi_buds_4               = config_path.."assets/dashboard/redmi-buds-4.png"

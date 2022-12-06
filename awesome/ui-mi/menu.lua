@@ -25,9 +25,7 @@ function _M.get()
     { "terminal", RC.vars.terminal },
     { "logout", "pkill -KILL -u " .. RC.vars.username },
     { "shutdown", "shutdown now" },
-
   }
-
   return menu_items
 end
 
