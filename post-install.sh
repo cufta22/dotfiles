@@ -3,6 +3,7 @@
 # chmod +x ~/dotfiles/post-install.sh
 
 rmmod pcspkr
+rfkill unblock bluetooth
 
 # Installing dependencies
 echo "Installing dependencies"
@@ -45,11 +46,12 @@ PKGS=(
     'transmission-qt'
     'discord-canary-electron-bin'
     'lxsession'
-    'lxappearance'
+    'lxappearance-gtk3'
     'xfce4-power-manager'
     'xss-lock'
     'i3lock-fancy-git'
     'xclip'
+    'flameshot'
     'brightnessctl'
     'nemo'
     'nemo-fileroller'
@@ -57,9 +59,9 @@ PKGS=(
     'nemo-terminal'
     'vscodium-bin'
     'remmina'
-    'xorg-xset'
-    'xorg-xinput'
+    'xorg-apps' # Group of all xorg utilities
     'redshift'
+    'blueman'
 )
 
 for PKG in "${PKGS[@]}"; do

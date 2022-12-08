@@ -10,7 +10,7 @@ redshift.script_adjust = fs.get_configuration_dir() .. 'scripts/redshift-adjust.
 redshift.script_off = fs.get_configuration_dir() .. 'scripts/redshift-off.sh'
 
 -- You can go even lover if you want
-local redshift_amount = 3500
+local redshift_amount = 4000
 
 function redshift._invoke_script(args, cb)
     awful.spawn.easy_async_with_shell(bluetooth.script_path .. ' ' .. args, function (out)

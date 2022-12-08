@@ -24,12 +24,16 @@
 
    ```shell
 
-   sudo pacman -S lxappearance lxsession rofi nemo brightnessctl playerctl alsa-utils papirus-icon-theme ttf-roboto network-manager-applet pasystray
+   sudo pacman -S lxappearance lxsession rofi nemo brightnessctl playerctl alsa-utils papirus-icon-theme ttf-roboto network-manager-applet pasystray redshift
 
    yay -S picom-jonaburg-git lain-git cava cbonsai
 
-   # Catppuccin 4 GTK themes
+   # Catppuccin GTK themes
    yay -S catppuccin-gtk-theme-mocha catppuccin-gtk-theme-macchiato catppuccin-gtk-theme-frappe catppuccin-gtk-theme-latte
+
+   # LightDM
+   yay -S lightdm lightdm-gtk-greeter xorg-xwd
+   sudo systemctl enable lightdm.service
    ```
 
 ## 3. Themes
@@ -37,7 +41,7 @@
    - [Papirus - Icon theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
    - [Catppuccin - Gtk theme](https://github.com/catppuccin/catppuccin)
 
-## 4. Bluetooth headphones
+## 4. Bluetooth earbuds
 
 Available devices for now:
 
@@ -75,15 +79,4 @@ To enable battery percentage display
     Alias: Redmi Buds 4 Pro
     ...
     Battery Percentage: 0x3c (60)
-```
-
-## 5. Reading/Bedtime mode
-
-Redshift adjusts the color temperature of your screen,
-To use redshift from dashboard install the following
-
-```shell
-
-   sudo pacman -S redshift
-
 ```

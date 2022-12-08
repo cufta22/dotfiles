@@ -15,7 +15,7 @@ run_once("picom")                 -- Compositor
 run_once("lxsession")             -- PolKit
 run_once("nm-applet")             -- NetworkManager
 -- run_once("flameshot")             -- Screenshot tool
-run_once("pasystray")             -- PulseAudio
+-- run_once("pasystray")             -- PulseAudio
 run_once("xfce4-power-manager")   -- Power Management
 
 run_once("chmod +x ~/dotfiles/awesome/scripts/bluetooth.sh")

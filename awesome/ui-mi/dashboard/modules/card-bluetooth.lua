@@ -88,7 +88,7 @@ awesome.connect_signal('bluetooth::enabled', function (enabled)
 
     awful.spawn.easy_async_with_shell("bluetoothctl info | grep 'Name' | cut -d ' ' -f2-", function (name)
         local trimmed_name = helpers.trim(name)
-        local new_name = string.len(trimmed_name) > 1 and buds_labels[trimmed_name] or "Off"
+        local new_name = string.len(trimmed_name) > 1 and enabled and buds_labels[trimmed_name] or enabled and "On" or "Off"
 
         bluetooth_status:set_markup_silently(new_name)
     end)
