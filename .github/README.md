@@ -54,10 +54,10 @@
 
 ### 4.1. Top 4 sections ( Left to right )
 
-   - 1. Dispaly user name and uptime
-   - 2. Toggle WiFi
-   - 3. Toggle Bluetooth
-   - 4. Run pacman -Syyu if updates available
+   - Dispaly user name and uptime
+   - Toggle WiFi
+   - Toggle Bluetooth
+   - Run pacman -Syyu if updates available
 
 ### 4.2. 9 action buttons ( Left to right )
 
