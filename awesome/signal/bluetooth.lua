@@ -21,7 +21,7 @@ function bluetooth.toggle()
 end
 
 gears.timer {
-    timeout = 5,
+    timeout = 1,
     call_now = true,
     autostart = true,
     callback = function ()

@@ -1,6 +1,6 @@
-local gears = require 'gears'
-local awful = require 'awful'
-local helpers = require 'helpers'
+local gears = require("gears")
+local awful = require("awful")
+local helpers = require("helpers")
 
 local fs = gears.filesystem
 
@@ -12,23 +12,15 @@ redshift.script_off = fs.get_configuration_dir() .. 'scripts/redshift-off.sh'
 -- You can go even lover if you want
 local redshift_amount = 4000
 
-function redshift._invoke_script(args, cb)
-    awful.spawn.easy_async_with_shell(bluetooth.script_path .. ' ' .. args, function (out)
-        if cb then
-            cb(helpers.trim(out))
-        end
-    end)
-end
-
 function redshift.re_emit_active_signal ()
-    awful.spawn.easy_async_with_shell(redshift.script_adjust .. ' -p', function (out)
-        awesome.emit_signal('redshift::active', out == "")
+    awful.spawn.easy_async_with_shell(redshift.script_adjust .. ' -p1', function (out)
+        awesome.emit_signal('redshift::active', helpers.trim(out) == "")
     end)
 end
 
 function redshift.toggle_active ()
-    awful.spawn.easy_async_with_shell(redshift.script_adjust .. ' -p', function (out)
-        local toggle_script = out == "" and redshift.script_adjust .. ' =' .. redshift_amount or redshift.script_off
+    awful.spawn.easy_async_with_shell(redshift.script_adjust .. ' -p1', function (out)
+        local toggle_script = out == "" and redshift.script_adjust .. ' -s1 ' .. redshift_amount or redshift.script_off
 
         awful.spawn.easy_async_with_shell(toggle_script, function ()
             redshift.re_emit_active_signal()

@@ -3,6 +3,7 @@
 # chmod +x ~/dotfiles/post-install.sh
 
 rmmod pcspkr
+sudo rmmod pcspkr
 rfkill unblock bluetooth
 
 # Installing dependencies
@@ -40,6 +41,7 @@ PKGS=(
     'catppuccin-gtk-theme'
     'papirus-icon-theme'
     'ttf-roboto'
+    'noto-fonts-emoji'
 
     # GOODIES
     'librewolf-git'

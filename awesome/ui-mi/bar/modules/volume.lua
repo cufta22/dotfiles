@@ -9,7 +9,7 @@ local color = require("ui-mi.theme.colors")
 -- Volume
 
 local icon_volume_dynamyc = wibox.widget{
-    image         = gears.color.recolor_image(beautiful.vol, color["blue300"]),
+    image         = gears.color.recolor_image(beautiful.action_vol, color["blue300"]),
     forced_width  = 30,
     forced_height = 30,
     valign        = "center",
@@ -19,18 +19,21 @@ local icon_volume_dynamyc = wibox.widget{
 
 local widget_volume = awful.widget.watch(
     "amixer get Master",
-    3, -- 3 sec
+    5, -- 5 sec
     function(widget, stdout)
+        if(not stdout) then
+            return widget:set_markup('<span color="'.. color["green300"] ..'">' ..  "---" .. '</span>')
+        end
 
         local vol_level, vol_status = string.match(stdout, "([%d]+)%%.*%[([%l]*)")
         local vol_level = tonumber(vol_level)
 
-        local new_img = gears.color.recolor_image(beautiful.vol, color["blue300"])
+        local new_img = gears.color.recolor_image(beautiful.action_vol, color["blue300"])
         local new_txt = '<span color="'.. color["blue300"] ..'">' .. vol_level.."%"  .. '</span>'
 
         if vol_status == "off" then
             new_txt = '<span color="'.. color["green300"] ..'">' ..  "---" .. '</span>'
-            new_img = gears.color.recolor_image(beautiful.vol_mute, color["green300"])
+            new_img = gears.color.recolor_image(beautiful.action_vol_off, color["green300"])
         end
 
         icon_volume_dynamyc:set_image(new_img)

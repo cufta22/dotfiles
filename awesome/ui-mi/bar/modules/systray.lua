@@ -5,7 +5,7 @@ local beautiful = require("beautiful")
 local color = require("ui-mi.theme.colors")
 
 local systray_button = wibox.widget {
-    image = gears.color.recolor_image(beautiful.bar_systray, color["red400"]),
+    image = gears.color.recolor_image(beautiful.bar_systray, color["teal400"]),
     valign = 'center',
     widget = wibox.widget.imagebox,
 }

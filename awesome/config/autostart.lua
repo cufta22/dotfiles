@@ -11,14 +11,19 @@ local function run_once(cmd)
                              findme, cmd), false)
 end
 
-run_once("picom")                 -- Compositor
-run_once("lxsession")             -- PolKit
-run_once("nm-applet")             -- NetworkManager
--- run_once("flameshot")             -- Screenshot tool
--- run_once("pasystray")             -- PulseAudio
-run_once("xfce4-power-manager")   -- Power Management
+run_once("chmod +x ~/dotfiles/awesome/scripts/init.sh")
+run_once("sh ~/dotfiles/awesome/scripts/init.sh")
 
 run_once("chmod +x ~/dotfiles/awesome/scripts/bluetooth.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/toggle-network.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/redshift-adjust.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/redshift-off.sh")
+run_once("chmod +x ~/dotfiles/awesome/scripts/bedtime-off.sh")
+run_once("chmod +x ~/dotfiles/awesome/scripts/mic.sh")
+
+run_once("picom")                 -- Compositor
+run_once("lxsession")             -- PolKit
+run_once("nm-applet")             -- NetworkManager
+-- run_once("flameshot")             -- Screenshot tool
+-- run_once("pasystray")             -- PulseAudio
+-- run_once("xfce4-power-manager")   -- Power Management

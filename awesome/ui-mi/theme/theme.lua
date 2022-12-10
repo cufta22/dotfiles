@@ -101,6 +101,8 @@ theme.menu_border_width = 1
 theme.layout_floating  = gcolor.recolor_image(config_path.."assets/layout/float.png", color["green400"])
 theme.layout_tile      = gcolor.recolor_image(config_path.."assets/layout/tile.png" , color["blue400"])
 
+theme.fallback_notif_icon = config_path.."assets/other/notification.png"
+
 -- Bar assets
 
 theme.tag_1                      = config_path.."assets/bar/tag_1.png"
@@ -119,35 +121,35 @@ theme.bat_2                      = config_path.."assets/bar/bat_2.png"
 theme.bat_1                      = config_path.."assets/bar/bat_1.png"
 theme.bat_plug                   = config_path.."assets/bar/bat_plug.png"
 
-theme.vol                        = config_path.."assets/bar/vol.png"
-theme.vol_mute                   = config_path.."assets/bar/vol_mute.png"
-
 theme.sun                        = config_path.."assets/bar/sun.png"
 theme.moon                       = config_path.."assets/bar/moon.png"
 
 theme.headphones                 = config_path.."assets/dashboard/headset.png"
 
-theme.dashboard_user             = config_path.."assets/bar/dashboard_user.png"
+theme.dashboard_user             = config_path.."assets/dashboard/dashboard_user.png"
 
-theme.dashboard_wifi             = config_path.."assets/bar/dashboard_wifi.png"
-theme.dashboard_wifi_off         = config_path.."assets/bar/dashboard_wifi_off.png"
-theme.dashboard_wifi_vpn         = config_path.."assets/bar/dashboard_wifi_vpn.png"
+theme.dashboard_wifi             = config_path.."assets/dashboard/dashboard_wifi.png"
+theme.dashboard_wifi_off         = config_path.."assets/dashboard/dashboard_wifi_off.png"
+theme.dashboard_wifi_vpn         = config_path.."assets/dashboard/dashboard_wifi_vpn.png"
 
-theme.dashboard_bluetooth        = config_path.."assets/bar/dashboard_bluetooth.png"
-theme.dashboard_bluetooth_off    = config_path.."assets/bar/dashboard_bluetooth_off.png"
+theme.dashboard_bluetooth        = config_path.."assets/dashboard/dashboard_bluetooth.png"
+theme.dashboard_bluetooth_off    = config_path.."assets/dashboard/dashboard_bluetooth_off.png"
 
 theme.dashboard_update           = config_path.."assets/dashboard/update_on.png"
 theme.dashboard_update_off       = config_path.."assets/dashboard/update_off.png"
 
-theme.dashboard_redshift         = config_path.."assets/bar/dashboard_redshift.png"
+theme.dashboard_lock             = config_path.."assets/dashboard/dashboard_lock.png"
 
-theme.dashboard_lock             = config_path.."assets/bar/dashboard_lock.png"
-
+theme.mode_redshift              = config_path.."assets/dashboard/mode_redshift.png"
 theme.mode_bedtime               = config_path.."assets/dashboard/mode_bedtime.png"
 theme.mode_airplane              = config_path.."assets/dashboard/mode_airplane.png"
 theme.action_screenshot          = config_path.."assets/dashboard/action_screenshot.png"
-theme.action_theme               = config_path.."assets/dashboard/action_theme.png"
-theme.action_kdeconnect          = config_path.."assets/dashboard/action_kdeconnect.png"
+theme.action_info                = config_path.."assets/dashboard/action_info.png"
+theme.action_symlink             = config_path.."assets/dashboard/action_symlink.png"
+theme.action_vol                 = config_path.."assets/dashboard/action_vol.png"
+theme.action_vol_off             = config_path.."assets/dashboard/action_vol_off.png"
+theme.action_mic                 = config_path.."assets/dashboard/action_mic.png"
+theme.action_mic_off             = config_path.."assets/dashboard/action_mic_off.png"
 
 theme.redmi_buds_4_pro           = config_path.."assets/dashboard/redmi-buds-4-pro.png"
 theme.redmi_buds_4               = config_path.."assets/dashboard/redmi-buds-4.png"

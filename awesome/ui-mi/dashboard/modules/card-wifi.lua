@@ -93,12 +93,21 @@ awesome.connect_signal('network::connected', function (is_connected)
             local name_WiFi = output1:gsub("%s+", ""):gsub("wifi", "")
             local name_VPN = output2:gsub("%s+", ""):gsub("vpn", "")
 
-            local name_Network = string.len(name_VPN) > 1 and name_WiFi or name_WiFi
-            local new_name = string.len(name_Network) > 1 and name_Network or "Wi-Fi"
+            local new_name, new_status, new_icon = "", "", ""
 
-            local new_status = is_connected and string.len(name_VPN) > 1 and "Connected | VPN" or "Connected" or "Off"
-
-            local new_icon = is_connected and string.len(name_VPN) > 1 and icon_wifi_vpn or icon_wifi_on or icon_wifi_off
+            if is_connected and string.len(name_VPN) > 1 then
+                new_name = name_WiFi
+                new_status = "Connected | VPN"
+                new_icon = icon_wifi_vpn
+            elseif is_connected then
+                new_name = name_WiFi
+                new_status = "Connected"
+                new_icon = icon_wifi_on
+            else
+                new_name = "Wi-Fi"
+                new_status = "Off"
+                new_icon = icon_wifi_off
+            end
 
             wifi_name:set_markup_silently(new_name)
             wifi_status:set_markup_silently(new_status)

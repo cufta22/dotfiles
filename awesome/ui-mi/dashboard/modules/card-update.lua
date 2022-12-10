@@ -92,11 +92,11 @@ gears.timer {
     callback = function ()
         awful.spawn.easy_async_with_shell("pacman -Qu | wc -l", function (count)
             local has_updates = tonumber(count) > 0
-            
+
             update_card.active = has_updates
 
             update_name:set_markup_silently(has_updates and "Update available" or "No updates :(")
-            update_status:set_markup_silently(has_updates and "Click to update now" or "Check in a few hours")
+            update_status:set_markup_silently(has_updates and "Click to update now" or "Check again later")
 
             update_icon:set_image(has_updates and icon_update_on or icon_update_off)
         end)

@@ -45,8 +45,9 @@ key_bindings:
 
 import:
   # uncomment the flavour you want below:
-#  - ~/.config/alacritty/catppuccin-mocha.yml
- - ~/.config/alacritty/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin-latte.yml
-#  - ~/.config/alacritty/default.yml
+#  - ~/.config/alacritty/themes/catppuccin-mocha.yml
+#  - ~/.config/alacritty/themes/catppuccin-macchiato.yml
+#  - ~/.config/alacritty/themes/catppuccin-frappe.yml
+#  - ~/.config/alacritty/themes/catppuccin-latte.yml
+ - ~/.config/alacritty/themes/material.yml
+#  - ~/.config/alacritty/themes/default.yml

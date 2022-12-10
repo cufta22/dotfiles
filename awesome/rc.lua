@@ -20,9 +20,6 @@ RC = {} -- global namespace, on top before require any modules
 RC.vars = require("config.variables")
 modkey = RC.vars.modkey
 
--- Notifications
-require("config.notifications")
-
 -- Theme
 require("ui-" .. RC.vars.global_theme .. ".theme")
 
@@ -42,6 +39,7 @@ require("config.rules")
 -- UI
 require("ui-" .. RC.vars.global_theme .. ".bar")
 require("ui-" .. RC.vars.global_theme .. ".wallpaper")
+require("ui-" .. RC.vars.global_theme .. ".notifications")
 -- require("ui-" .. RC.vars.global_theme .. ".titlebar")
 
 -- UI - theme specific

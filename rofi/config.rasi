@@ -7,12 +7,12 @@ configuration {
     disable-history:        false;
     hide-scrollbar:         true;
     scroll-method:          1;
-    display-drun:           "🪶 Run";    
-    display-power:          "🔘 Power menu";
-    display-emoji:          "💀 Emoji";
+    display-drun:           "🚀";    
+    display-power:          "🔋";
+    display-emoji:          "😎";
     sidebar-mode:           true;
     font:                   "JetBrains Mono NF 14";
 }
 
-@theme "./themes/macchiato.rasi"
+@theme "./themes/material.rasi"
 

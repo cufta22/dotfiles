@@ -1,7 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
 
-
 gears.timer {
     timeout = 5,
     call_now = true,

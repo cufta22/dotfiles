@@ -36,17 +36,9 @@ gears.timer {
     call_now = true,
     autostart = true,
     callback = function ()
-        awful.spawn.easy_async_with_shell('uptime -p', function (time)
-            local new_uptime = time:gsub("%s+", "")
-            
-            local hours = string.sub(new_uptime, 3, 3)
-            local minutes = string.sub(new_uptime, 9, 11):gsub("%D+", "")
-
-            local label_hours = hours == "1" and " hour, " or " hours, "
-            local label_minutes = minutes == "1" and " minute" or " minutes"
-
+        awful.spawn.easy_async_with_shell('uptime -p', function (time)            
             uptime:set_markup_silently(
-                "Up "..hours..label_hours..minutes..label_minutes
+                helpers.capitalize(string.gsub(time, "\n", ""))
             )
         end)
     end
