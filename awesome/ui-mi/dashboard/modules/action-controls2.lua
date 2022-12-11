@@ -50,8 +50,7 @@ gears.timer {
 local icon_symlink = utils.make_actionicon(beautiful.action_symlink, color["blue700"])
 
 icon_symlink:add_button(awful.button({}, 1, function ()
-    naughty.notify({ title="Symlink done!" })
-    awful.spawn.with_shell('sh ~/dotfiles/awesome/symlink.sh')
+    awful.spawn.with_shell(RC.vars.terminal .. ' -e sh ~/dotfiles/symlink.sh')
     icon_symlink.active = true
 end))
 

@@ -17,6 +17,7 @@ ln -s $mydotfiles/cava       ~/.config
 
 sudo rm -rd /etc/X11/xorg.conf.d
 sudo ln -s $mydotfiles/xorg.conf.d  /etc/X11
+sudo cp $mydotfiles/modprobe.d/nobeep.conf /etc/modprobe.d/nobeep.conf
 
 # Change for your user
 rm /home/nxc/.bash_profile
