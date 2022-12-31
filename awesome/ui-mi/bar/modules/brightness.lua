@@ -24,7 +24,7 @@ local widget_brightness = awful.widget.watch(
     function(widget, stdout)
 
         local new_img, new_txt = "", ""
-        local max = 26666 -- Output of brightnessctl max
+        local max = RC.vars.max_brightness
         local perc = string.format("%.0f", (stdout:gsub("%s+", "") / max) * 100)
 
         new_img = tonumber(perc) >= 50 and

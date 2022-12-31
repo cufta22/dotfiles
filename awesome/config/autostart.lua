@@ -21,7 +21,7 @@ run_once("chmod +x ~/dotfiles/awesome/scripts/redshift-off.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/bedtime-off.sh")
 run_once("chmod +x ~/dotfiles/awesome/scripts/mic.sh")
 
-run_once("picom")                 -- Compositor
+-- run_once("picom")                 -- Compositor
 run_once("lxsession")             -- PolKit
 run_once("nm-applet")             -- NetworkManager
 -- run_once("flameshot")             -- Screenshot tool

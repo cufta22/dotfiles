@@ -64,6 +64,10 @@ PKGS=(
     'xorg-apps' # Group of all xorg utilities
     'redshift'
     'blueman'
+
+    # USEFUL STUFF FROM GNOME
+    'gnome-disk-utility'
+    'gnome-multi-writer'
 )
 
 for PKG in "${PKGS[@]}"; do

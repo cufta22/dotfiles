@@ -7,7 +7,7 @@ gears.timer {
     autostart = true,
     callback = function ()
         awful.spawn.easy_async_with_shell("brightnessctl get", function (out)
-            local max = 26666 -- Output of brightnessctl max
+            local max = RC.vars.max_brightness
             local perc = string.format("%.0f", (out:gsub("%s+", "") / max) * 100)
 
             awesome.emit_signal('brightness::value', tonumber(perc))
