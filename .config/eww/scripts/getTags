@@ -1,0 +1,131 @@
+#!/bin/sh
+workspaces() {
+
+ws1="1"
+ws2="2"
+ws3="3"
+ws4="4"
+ws5="5"
+ws6="6"
+ws7="7"
+ws8="8"
+ws9="9"
+
+# Unoccupied
+un="0"
+
+# check if Focused
+# focused=$(echo "return client.focus.first_tag.index" | awesome-client | sed 's/[^0-9]*//g')
+
+ic_1="1"
+ic_2="2"
+ic_3="3"
+ic_4="4"
+ic_5="5"
+ic_6="6"
+ic_7="7"
+ic_8="8"
+ic_9="9"
+
+f1="1"
+f2="2"
+f3="3"
+f4="4"
+f5="5"
+f6="6"
+f7="7"
+f8="8"
+f9="9"
+
+#
+# if [ $o1 ]; then
+#     ic_1=""
+# fi
+# if [ $o2 ]; then
+#     ic_2=""
+# fi
+# if [ $o3 ]; then
+#     ic_3=""
+# fi
+# if [ $o4 ]; then
+#     ic_4=""
+# fi
+# if [ $o5 ]; then
+#     ic_5=""
+# fi
+# if [ $o6 ]; then
+#     ic_6=""
+# fi
+# if [ $o7 ]; then
+#     ic_7=""
+# fi
+# if [ $o8 ]; then
+#     ic_8=""
+# fi
+# if [ $o9 ]; then
+#     ic_9=""
+# fi
+
+# if [ $focused == 1 ]; then
+#     ic_1="1"
+# elif [ $focused == 2 ]; then
+#     ic_2="2"
+# elif [ $focused == 3 ]; then
+#     ic_3="3"
+# elif [ $focused == 4 ]; then
+#     ic_4="4"
+# elif [ $focused == 5 ]; then
+#     ic_5="5"
+# elif [ $focused == 6 ]; then
+#     ic_6="6"
+# elif [ $focused == 7 ]; then
+#     ic_7="7"
+# elif [ $focused == 8 ]; then
+#     ic_8="8"
+# elif [ $focused == 9 ]; then
+#     ic_9="9"
+# fi
+
+
+
+# echo 	"(box	
+#             :class \"works\" 
+#             :spacing \"-1\" 
+#             :orientation \"h\" 
+#             :halign \"center\" 
+#             :space-evenly \"false\" 
+#             (button :onclick \"bspc desktop -f $ws1\"	
+#             :class	\"$un$f1$f1\"	\"$ic_1\") 
+#             (button :onclick \"bspc desktop -f $ws2\"	
+#             :class \"$un$f1$f2\"	 \"$ic_2\") 
+#             (button :onclick \"bspc desktop -f $ws3\"	
+#             :class \"$un$f1$f3\" \"$ic_3\") 
+#             (button :onclick \"bspc desktop -f $ws4\"	
+#             :class \"$un$f1$f4\"	\"$ic_4\") 
+#             (button :onclick \"bspc desktop -f $ws5\"	
+#             :class \"$un$f1$f5\" \"$ic_5\")  
+#             (button :onclick \"bspc desktop -f $ws6\"	
+#             :class \"$un$f1$f6\" \"$ic_6\") 
+#             (button :onclick \"bspc desktop -f $ws7\"	
+#             :class \"$un$f1$f7\" \"$ic_7\") 
+#             (button :onclick \"bspc desktop -f $ws8\"	
+#             :class \"$un$f1$f8\"	\"$ic_8\") 
+#             (button :onclick \"bspc desktop -f $ws9\"	
+#             :class \"$un$f1$f9\"	\"$ic_9\")
+#         )"
+
+echo 	"(box	
+            :class \"works\" 
+            :spacing \"-1\" 
+            :orientation \"h\" 
+            :halign \"center\" 
+            :space-evenly \"false\" 
+            (button :onclick \"echo hi\"	
+            :class	\"$un$f1$f1\"	\"$ic_1\")
+            )"
+
+}
+workspaces
+bspc subscribe all | while read -r _ ; do
+workspaces
+done

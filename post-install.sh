@@ -40,13 +40,15 @@ PKGS=(
     'lain-git'
     'catppuccin-gtk-theme'
     'papirus-icon-theme'
-    'ttf-roboto'
     'noto-fonts-emoji'
+    'ttf-roboto'
+    'ttf-droid'
 
     # GOODIES
+    'firefox'
     'librewolf-git'
     'transmission-qt'
-    'discord-canary-electron-bin'
+    'metro-for-steam-skin'
     'lxsession'
     'lxappearance-gtk3'
     'xfce4-power-manager'
@@ -64,10 +66,13 @@ PKGS=(
     'xorg-apps' # Group of all xorg utilities
     'redshift'
     'blueman'
+    'sl'
 
     # USEFUL STUFF FROM GNOME
     'gnome-disk-utility'
     'gnome-multi-writer'
+    'gnome-font-viewer'
+    'gedit'
 )
 
 for PKG in "${PKGS[@]}"; do
