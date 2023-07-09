@@ -9,3 +9,4 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 ANDROID_HOME=$HOME/Android/Sdk
+ANDROID_SDK_ROOT=$HOME/Android/Sdk

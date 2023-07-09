@@ -36,6 +36,18 @@ ruled.client.connect_signal("request::rules", function()
         },
         properties = { floating = true }
     }
+--     { 
+--         rule = { class = "Firefox" },
+--   properties = { tag = tags[math.min(2, screen.count())][2],
+--                  maximized_vertical = false, maximized_horizontal = false } 
+--                 }
+
+    -- ruled.client.append_rule {
+    --     -- id         = "titlebars",
+    --     class      = "Alacritty",
+    --     -- rule_any   = { type = { "normal", "dialog" } },
+    --     properties = { maximized_vertical = true, maximized_horizontal = true }
+    -- }
 
     -- Add titlebars to normal clients and dialogs
     -- ruled.client.append_rule {

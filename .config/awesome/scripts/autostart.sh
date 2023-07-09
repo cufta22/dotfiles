@@ -11,7 +11,7 @@ function run () {
     fi
 }
 
-run picom                 # Compositor
+# run picom                 # Compositor
 run lxsession             # PolKit
 run nm-applet             # NetworkManager
 # run flameshot             # Screenshot tool
