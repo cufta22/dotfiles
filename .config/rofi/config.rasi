@@ -1,18 +1,22 @@
 configuration {
-    modi:                   "drun,power:./.config/rofi/modules/powermenu.sh --no-symbols,emoji:rofimoji --action copy --max-recent 0";
+    // modi:                   "drun,power:./.config/rofi/modules/powermenu.sh --no-symbols,emoji:rofimoji --action copy --max-recent 0";
+    modi:                   "drun,power:./.config/rofi/modules/powermenu.sh --no-symbols";
     show-icons:             true;
     terminal:               "alacritty";
     drun-display-format:    "{icon} {name}";
+    window-format:          "{w} · {c} · {t}";
     location:               0;
     disable-history:        false;
     hide-scrollbar:         true;
     scroll-method:          1;
-    display-drun:           "🚀";    
+    display-drun:           "🔎";    
     display-power:          "🔋";
-    display-emoji:          "😎";
+    // display-drun:           "drun";    
+    // display-power:          "power";
     sidebar-mode:           true;
     font:                   "JetBrains Mono NF 14";
 }
 
-@theme "./themes/mocha.rasi"
+// @theme "./themes/mocha.rasi" 
+@theme "./themes/mantine.rasi"
 

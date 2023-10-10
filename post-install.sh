@@ -29,6 +29,8 @@ PKGS=(
     'alsa-utils'
     'pasystray'
     'playerctl'
+    'helvum'
+    'jamesdsp'
 
     # RICE
     'alacritty'
@@ -45,7 +47,6 @@ PKGS=(
     'ttf-droid'
 
     # GOODIES
-    'firefox'
     'librewolf-git'
     'transmission-qt'
     'metro-for-steam-skin'
@@ -62,6 +63,8 @@ PKGS=(
     'nemo-preview'
     'nemo-terminal'
     'vscodium-bin'
+    'vscodium-bin-marketplace'
+    'vscodium-bin-features'
     'remmina'
     'xorg-apps' # Group of all xorg utilities
     'redshift'
@@ -83,6 +86,6 @@ done
 # Download dots
 echo "Downloading dotfiles"
 cd ~
-git clone https://github.com/CUFTA22/dotfiles
+git clone https://github.com/cufta22/dotfiles
 
 sh ~/dotfiles/symlink.sh

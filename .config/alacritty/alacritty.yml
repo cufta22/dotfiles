@@ -10,7 +10,7 @@ window:
     x: 25
     y: 25
 
-    dynamic_padding:  true
+    dynamic_padding: true
     decoration: none
 
 font:
@@ -26,7 +26,7 @@ font:
   bold_italic:
     family: Source Code Pro
 
-  size: 7
+  size: 10
 
 # cursor:
 #   style: Underline
@@ -34,9 +34,8 @@ font:
 #   unfocused_hollow: false
 
 live_config_reload: true
-                 
-key_bindings:
 
+key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
 
   - { key: Equals, mods: Control, action: IncreaseFontSize }
@@ -45,5 +44,5 @@ key_bindings:
 
 import:
   # uncomment the flavour you want below:
-#  - ~/.config/alacritty/themes/nomai.yml
- - ~/.config/alacritty/themes/mocha.yml
+  #  - ~/.config/alacritty/themes/nomai.yml
+  - ~/.config/alacritty/themes/mocha.yml

@@ -10,7 +10,7 @@
 
 ```shell
 # Awesome
-yay -S awesome-git
+yay -S awesome
 ```
 
 ## 2. Install softwares
@@ -22,7 +22,7 @@ yay -S lxappearance lxsession rofi nemo brightnessctl playerctl alsa-utils papir
 yay -S picom-jonaburg-git cava cbonsai
 
 # Catppuccin GTK themes
-yay -S catppuccin-gtk-theme-mocha catppuccin-gtk-theme-macchiato catppuccin-gtk-theme-frappe catppuccin-gtk-theme-latte
+# yay -S catppuccin-gtk-theme-mocha catppuccin-gtk-theme-macchiato catppuccin-gtk-theme-frappe catppuccin-gtk-theme-latte
 
 # LightDM
 yay -S lightdm lightdm-gtk-greeter xorg-xwd
