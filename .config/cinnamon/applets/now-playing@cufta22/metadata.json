@@ -1,0 +1,7 @@
+{
+  "uuid": "now-playing@cufta22",
+  "name": "Now Playing",
+  "description": "Displays currently playing media along with nice animation",
+  "icon": "cs-sound",
+  "max-instances": "-1"
+}

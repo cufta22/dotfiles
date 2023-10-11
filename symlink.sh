@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # chmod +x ~/dotfiles/symlink.sh
+# Don't run with sudo
 
 mydotfiles=$HOME/dotfiles   # Your dotfiles path
 myuser=nxc                  # Your user
@@ -11,6 +12,10 @@ ln -s $mydotfiles/.config/neofetch   ~/.config
 ln -s $mydotfiles/.config/picom      ~/.config
 ln -s $mydotfiles/.config/rofi       ~/.config
 ln -s $mydotfiles/.config/cava       ~/.config
+
+# Cinnamon stuff
+# rm -rd ~/.local/share/cinnamon/applets/now-playing@cufta22
+ln -s $mydotfiles/.config/cinnamon/applets/now-playing@cufta22 ~/.local/share/cinnamon/applets/now-playing@cufta22
 
 # Random configs
 sudo rm -rd /etc/X11/xorg.conf.d
