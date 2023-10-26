@@ -80,13 +80,14 @@ MyApplet.prototype = {
     this.set_applet_icon_path(APPLET_PATH + `/icons/state${iconState}.png`);
 
     // Update label
-    let mediaTitle = this._run_cmd("playerctl metadata title");
-    let mediaArtist = this._run_cmd("playerctl metadata artist");
+    let mediaTitle = this._run_cmd("playerctl metadata title").toLowerCase();
+    let mediaArtist = this._run_cmd("playerctl metadata artist").toLowerCase();
 
     // Fix for NXC
-    const mediaLabel = ["nightcore", "-"].includes(mediaTitle.toLowerCase())
-      ? mediaTitle
-      : `${mediaArtist} - ${mediaTitle}`;
+    const mediaLabel =
+      mediaTitle.includes("nightcore") || mediaTitle.includes("-")
+        ? mediaTitle
+        : `${mediaArtist} - ${mediaTitle}`;
 
     this.set_applet_label(mediaLabel);
   },
