@@ -7,7 +7,7 @@
 
 neofetch
 
-alias ls='ls --color=auto'
+alias ls='ls -al --color=auto'
 
 alias p-S='sudo pacman -Syyu'
 alias p-R='sudo pacman -Rcns'
@@ -16,7 +16,7 @@ alias p-Q='pacman -Qs'
 alias woman='man'
 alias please='sudo'
 
-alias dev='yarn dev'
+alias dev='pnpm run dev'
 
 PS1='[\u@\h \W]\$ '
 # pnpm

@@ -44,5 +44,5 @@ key_bindings:
 
 import:
   # uncomment the flavour you want below:
-  #  - ~/.config/alacritty/themes/nomai.yml
-  - ~/.config/alacritty/themes/mocha.yml
+  - ~/.config/alacritty/themes/nomai.yml
+  # - ~/.config/alacritty/themes/mocha.yml

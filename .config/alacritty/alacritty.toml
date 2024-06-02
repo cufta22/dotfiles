@@ -1,0 +1,44 @@
+import = ["/home/nxc/.config/alacritty/themes/nomai.toml"]
+live_config_reload = true
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 10
+
+[font.bold]
+family = "Source Code Pro"
+
+[font.bold_italic]
+family = "Source Code Pro"
+
+[font.italic]
+family = "Source Code Pro"
+
+[font.normal]
+family = "Source Code Pro"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[window]
+opacity = 1
+
+[window.padding]
+# decoration = "none"
+# dynamic_padding = true
+x = 25
+y = 25

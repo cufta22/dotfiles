@@ -9,6 +9,7 @@ myuser=nxc                  # Your user
 ln -s $mydotfiles/.config/alacritty  ~/.config
 ln -s $mydotfiles/.config/pipewire   ~/.config
 ln -s $mydotfiles/.config/neofetch   ~/.config
+ln -s $mydotfiles/.config/awesome    ~/.config
 ln -s $mydotfiles/.config/picom      ~/.config
 ln -s $mydotfiles/.config/rofi       ~/.config
 ln -s $mydotfiles/.config/cava       ~/.config
