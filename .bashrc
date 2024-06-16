@@ -5,13 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-neofetch
+# neofetch
+fastfetch
 
 alias ls='ls -al --color=auto'
 
-alias p-S='sudo pacman -Syyu'
-alias p-R='sudo pacman -Rcns'
-alias p-Q='pacman -Qs'
+# alias p-S='sudo pacman -Syyu'
+# alias p-R='sudo pacman -Rcns'
+# alias p-Q='pacman -Qs'
 
 alias woman='man'
 alias please='sudo'
