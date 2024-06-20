@@ -14,9 +14,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Controller
-  boot.kernelModules = [ "uinput" "joydev" ];
-  hardware.bluetooth.enable = true;
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
   services.blueman.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -57,10 +59,28 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   # Nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+    prime = {
+      offload = {
+			  enable = true;
+			  enableOffloadCmd = true;
+		  };
+      intelBusId = "PCI:0:2:0";
+		  nvidiaBusId = "PCI:1:0:0";
+    };
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -76,7 +96,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -123,6 +143,7 @@
       cava
       rofi
       rofi-power-menu
+      catppuccin-gtk
       # rofimoji
 
       # Goodies
@@ -130,13 +151,23 @@
       sl
     ];
   };
-  
+
+  # Controller
+  hardware.uinput.enable = true;
+  services.udev = {
+    enable = true;
+    packages = with pkgs; [
+      game-devices-udev-rules
+    ];
+  };
+
   # Install Steam
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+  hardware.steam-hardware.enable = true;
 
   # Install Firefox.
   # programs.firefox.enable = true;
@@ -150,6 +181,10 @@
     "steam"
     "steam-original"
     "steam-run"
+
+    "nvidia-x11"
+    "nvidia-settings"
+    "nvidia-persistenced"
   ];
 
   # List packages installed in system profile. To search, run:
@@ -157,7 +192,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    xboxdrv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

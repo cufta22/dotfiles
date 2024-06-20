@@ -35,6 +35,9 @@ ln -s $mydotfiles/.config/cinnamon/applets/now-playing@cufta22 ~/.local/share/ci
 # sudo cp $mydotfiles/pacman.d/nvidia.hook /etc/pacman.d/hooks/nvidia.hook
 # sudo cp $mydotfiles/pacman.d/pacman-cache-cleanup.hook /etc/pacman.d/hooks/pacman-cache-cleanup.hook
 
+# sudo rm -r /etc/nixos
+# sudo cp -a /home/nxc/dotfiles/nixos/. /etc/nixos/
+
 # Bash config
 rm /home/$myuser/.bash_profile
 rm /home/$myuser/.bashrc
