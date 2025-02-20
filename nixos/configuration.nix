@@ -59,19 +59,18 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
+  # Enable OpenGL ig
+  hardware.graphics.enable = true;
+  
   # Nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.production;
+    open = false;
     prime = {
       offload = {
 			  enable = true;
@@ -88,6 +87,24 @@
   # Enable the Cinnamon Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
+
+  # Enable the Awesome Window Manager.
+  # services.xserver.windowManager.awesome = {
+  #   enable = true;
+  #   package = pkgs.awesome.overrideAttrs (old: {
+  #       version = "1f7ac8f9c7ab9fff7dd93ab4b29514ff3580efcf";
+  #       src = pkgs.fetchFromGitHub {
+  #           owner = "awesomeWM";
+  #           repo = "awesome";
+  #           rev = version;
+  #           hash = "sha256-D5CTo4FvGk2U3fkDHf/JL5f/O1779i92UcRpPn+lbpw=";
+  #       };
+  #       patches = [];
+  #       postPatch = ''
+  #           patchShebangs tests/examples/_postprocess.lua
+  #       '';
+  #   });
+  # };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -115,7 +132,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nxc = {
@@ -130,8 +147,11 @@
 
       # Dev stuff
       firefox-devedition
+      ungoogled-chromium
+      google-chrome
       vscodium
-      nodejs_22
+      nodejs
+      nodePackages.pnpm
       bun
       git
 
@@ -148,7 +168,11 @@
 
       # Goodies
       flameshot
+      discord
       sl
+      protonup
+      prismlauncher
+      nix-prefetch-git
     ];
   };
 
@@ -166,6 +190,7 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+
   };
   hardware.steam-hardware.enable = true;
 
@@ -193,6 +218,10 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/nxc/.steam/root/compatibilitytools.d";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
