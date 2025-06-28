@@ -2,8 +2,6 @@
 
 # chmod +x ~/dotfiles/.config/awesome/autostart.sh
 
-#!/bin/sh
-
 function run () {
     local cmd=$@
     if ! pgrep -x $cmd; then
@@ -12,8 +10,8 @@ function run () {
 }
 
 # run picom                 # Compositor
-run lxsession             # PolKit
+# run lxsession             # PolKit
 run nm-applet             # NetworkManager
-# run flameshot             # Screenshot tool
-# run pasystray             # PulseAudio
+run flameshot             # Screenshot tool
+run pasystray             # PulseAudio
 # run xfce4-power-manager   # Power Management

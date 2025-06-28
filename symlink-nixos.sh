@@ -16,15 +16,15 @@ myuser=nxc                  # Your user
 
 ln -s $mydotfiles/.config/alacritty  ~/.config
 # ln -s $mydotfiles/.config/pipewire   ~/.config
-ln -s $mydotfiles/.config/neofetch   ~/.config
-# ln -s $mydotfiles/.config/awesome    ~/.config
-# ln -s $mydotfiles/.config/picom      ~/.config
+# ln -s $mydotfiles/.config/neofetch   ~/.config
+ln -s $mydotfiles/.config/awesome    ~/.config
+ln -s $mydotfiles/.config/picom      ~/.config
 ln -s $mydotfiles/.config/rofi       ~/.config
 ln -s $mydotfiles/.config/cava       ~/.config
 
 # Cinnamon stuff
 # rm -rd ~/.local/share/cinnamon/applets/now-playing@cufta22
-ln -s $mydotfiles/.config/cinnamon/applets/now-playing@cufta22 ~/.local/share/cinnamon/applets/now-playing@cufta22
+# ln -s $mydotfiles/.config/cinnamon/applets/now-playing@cufta22 ~/.local/share/cinnamon/applets/now-playing@cufta22
 
 # Random configs
 # sudo rm -rd /etc/X11/xorg.conf.d
@@ -39,16 +39,16 @@ ln -s $mydotfiles/.config/cinnamon/applets/now-playing@cufta22 ~/.local/share/ci
 # sudo cp -a /home/nxc/dotfiles/nixos/. /etc/nixos/
 
 # Bash config
-rm /home/$myuser/.bash_profile
-rm /home/$myuser/.bashrc
-ln -s $mydotfiles/.bash_profile  ~/
-ln -s $mydotfiles/.bashrc        ~/
+# rm /home/$myuser/.bash_profile
+# rm /home/$myuser/.bashrc
+# ln -s $mydotfiles/.bash_profile  ~/
+# ln -s $mydotfiles/.bashrc        ~/
 
 # For some reason LightDM doesn't work well with symlinks the files are copied
 # to LightDM config directory, this means that when you make some changes in dotfiles
 # you'll have to run this script again :(
-sudo rm /etc/lightdm/lightdm-gtk-greeter.conf
-sudo rm -rd /etc/lightdm/assets
+# sudo rm /etc/lightdm/lightdm-gtk-greeter.conf
+# sudo rm -rd /etc/lightdm/assets
 
-sudo cp $mydotfiles/lightdm/lightdm-gtk-greeter.conf  /etc/lightdm/lightdm-gtk-greeter.conf
-sudo cp -a $mydotfiles/lightdm/assets                 /etc/lightdm/assets
+# sudo cp $mydotfiles/lightdm/lightdm-gtk-greeter.conf  /etc/lightdm/lightdm-gtk-greeter.conf
+# sudo cp -a $mydotfiles/lightdm/assets                 /etc/lightdm/assets

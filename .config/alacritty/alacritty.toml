@@ -1,5 +1,3 @@
-import = ["/home/nxc/.config/alacritty/themes/nomai.toml"]
-live_config_reload = true
 
 [env]
 TERM = "alacritty"
@@ -42,3 +40,7 @@ opacity = 1
 # dynamic_padding = true
 x = 25
 y = 25
+
+[general]
+live_config_reload = true
+import = ["/home/nxc/.config/alacritty/themes/nomai.toml"]

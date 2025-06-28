@@ -2,13 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  # Kernel
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -45,13 +49,26 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager = {
+      enable = true;
+      enableStrongSwan = true;
+      plugins = with pkgs; [ 
+        networkmanager-l2tp
+        networkmanager_strongswan
+      ];
+    };
+  };
   services.strongswan = {
     enable = true;
     secrets = [
       "ipsec.d/ipsec.nm-l2tp.secrets"
     ];
   };
+  systemd.tmpfiles.rules = [
+    "L /etc/ipsec.secrets - - - - /etc/ipsec.d/ipsec.nm-l2tp.secrets"
+  ];
+  environment.etc."strongswan.conf".text = "";
 
   # Set your time zone.
   time.timeZone = "Europe/Belgrade";
@@ -70,6 +87,7 @@
     powerManagement.finegrained = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.production;
+    # package = config.boot.kernelPackages.nvidiaPackages.beta;
     open = false;
     prime = {
       offload = {
@@ -89,22 +107,22 @@
   services.xserver.desktopManager.cinnamon.enable = true;
 
   # Enable the Awesome Window Manager.
-  # services.xserver.windowManager.awesome = {
-  #   enable = true;
-  #   package = pkgs.awesome.overrideAttrs (old: {
-  #       version = "1f7ac8f9c7ab9fff7dd93ab4b29514ff3580efcf";
-  #       src = pkgs.fetchFromGitHub {
-  #           owner = "awesomeWM";
-  #           repo = "awesome";
-  #           rev = version;
-  #           hash = "sha256-D5CTo4FvGk2U3fkDHf/JL5f/O1779i92UcRpPn+lbpw=";
-  #       };
-  #       patches = [];
-  #       postPatch = ''
-  #           patchShebangs tests/examples/_postprocess.lua
-  #       '';
-  #   });
-  # };
+  # nix-prefetch-git --url https://github.com/awesomeWM/awesome.git --rev HEAD
+  services.xserver.windowManager.awesome = {
+    enable = true;
+    package = pkgs.awesome.overrideAttrs (old: {
+        src = pkgs.fetchFromGitHub {
+            owner = "awesomeWM";
+            repo = "awesome";
+            rev = "691e36425a645e54402cb04efc4c2b00d73051bd";
+            hash = "sha256-IN5sNBDoC6CtBzr3Qp8S9r0rfqR2CD/maGB1aiZdRE4=";
+        };
+        patches = [];
+        postPatch = ''
+            patchShebangs tests/examples/_postprocess.lua
+        '';
+    });
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -115,8 +133,25 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # Power management
+  services.power-profiles-daemon.enable = false;
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      energy_performance_preference = "performance";
+      turbo = "auto";
+      scaling_min_freq = "3600000";
+      # scaling_max_freq = "3600000";
+    };
+  };
+
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -143,23 +178,27 @@
       # Work stuff
       remmina
       networkmanager-l2tp
-      strongswan
+      networkmanager_strongswan
+      # strongswan
 
       # Dev stuff
       firefox-devedition
+      # inputs.zen-browser.packages.x86_64-linux.beta
       ungoogled-chromium
-      google-chrome
       vscodium
-      nodejs
-      nodePackages.pnpm
+      nodejs_24
+      pnpm
       bun
-      git
+      
+      yt-dlp
+      gallery-dl
+      ffmpeg
 
       # Rice stuff
       fastfetch
       alacritty
       papirus-icon-theme
-      vimix-cursor-theme
+      vimix-cursors
       cava
       rofi
       rofi-power-menu
@@ -171,6 +210,7 @@
       discord
       sl
       protonup
+      mangohud
       prismlauncher
       nix-prefetch-git
     ];
@@ -188,14 +228,15 @@
   # Install Steam
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
   hardware.steam-hardware.enable = true;
 
   # Install Firefox.
-  # programs.firefox.enable = true;
+  # programs.firefox.enable = false;
 
   # Install Gamemode
   programs.gamemode.enable = true;
@@ -215,8 +256,35 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    git
+    wget
+
+    # Brightness
+    brightnessctl
+
+    # Sound
+    alsa-utils
+    playerctl
+    pasystray
+
+    # Fonts
+    source-code-pro
+    roboto
+
+    # X Compositor
+    picom
+
+    # LXQT goodies
+    lxde.lxsession
+    lxappearance
+
+    # XFCE goodies
+    xfce.xfce4-power-manager
+
+    # Gnome goodies
+    gnome-font-viewer
+    gnome-disk-utility
+    gnome-multi-writer
   ];
 
   environment.sessionVariables = {
