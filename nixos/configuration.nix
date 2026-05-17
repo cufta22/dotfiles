@@ -52,10 +52,10 @@
   networking = {
     networkmanager = {
       enable = true;
-      enableStrongSwan = true;
+      # enableStrongSwan = true;
       plugins = with pkgs; [ 
         networkmanager-l2tp
-        networkmanager_strongswan
+        networkmanager-strongswan
       ];
     };
   };
@@ -108,21 +108,21 @@
 
   # Enable the Awesome Window Manager.
   # nix-prefetch-git --url https://github.com/awesomeWM/awesome.git --rev HEAD
-  services.xserver.windowManager.awesome = {
-    enable = true;
-    package = pkgs.awesome.overrideAttrs (old: {
-        src = pkgs.fetchFromGitHub {
-            owner = "awesomeWM";
-            repo = "awesome";
-            rev = "691e36425a645e54402cb04efc4c2b00d73051bd";
-            hash = "sha256-IN5sNBDoC6CtBzr3Qp8S9r0rfqR2CD/maGB1aiZdRE4=";
-        };
-        patches = [];
-        postPatch = ''
-            patchShebangs tests/examples/_postprocess.lua
-        '';
-    });
-  };
+  # services.xserver.windowManager.awesome = {
+  #   enable = true;
+  #   package = pkgs.awesome.overrideAttrs (old: {
+  #       src = pkgs.fetchFromGitHub {
+  #           owner = "awesomeWM";
+  #           repo = "awesome";
+  #           rev = "691e36425a645e54402cb04efc4c2b00d73051bd";
+  #           hash = "sha256-IN5sNBDoC6CtBzr3Qp8S9r0rfqR2CD/maGB1aiZdRE4=";
+  #       };
+  #       patches = [];
+  #       postPatch = ''
+  #           patchShebangs tests/examples/_postprocess.lua
+  #       '';
+  #   });
+  # };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -178,18 +178,19 @@
       # Work stuff
       remmina
       networkmanager-l2tp
-      networkmanager_strongswan
+      networkmanager-strongswan
       # strongswan
 
       # Dev stuff
-      firefox-devedition
+      # firefox-devedition
       # inputs.zen-browser.packages.x86_64-linux.beta
       ungoogled-chromium
       vscodium
       nodejs_24
       pnpm
       bun
-      
+      mongodb-compass
+
       yt-dlp
       gallery-dl
       ffmpeg
@@ -198,10 +199,7 @@
       fastfetch
       alacritty
       papirus-icon-theme
-      vimix-cursors
-      cava
-      rofi
-      rofi-power-menu
+      capitaine-cursors
       catppuccin-gtk
       # rofimoji
 
@@ -209,10 +207,11 @@
       flameshot
       discord
       sl
-      protonup
+      protonup-ng
       mangohud
       prismlauncher
       nix-prefetch-git
+      godot
     ];
   };
 
@@ -236,7 +235,7 @@
   hardware.steam-hardware.enable = true;
 
   # Install Firefox.
-  # programs.firefox.enable = false;
+  programs.firefox.enable = true;
 
   # Install Gamemode
   programs.gamemode.enable = true;
@@ -275,7 +274,7 @@
     picom
 
     # LXQT goodies
-    lxde.lxsession
+    lxsession
     lxappearance
 
     # XFCE goodies
