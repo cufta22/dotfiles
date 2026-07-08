@@ -190,6 +190,7 @@
       pnpm
       bun
       mongodb-compass
+      godot
 
       yt-dlp
       gallery-dl
@@ -211,7 +212,8 @@
       mangohud
       prismlauncher
       nix-prefetch-git
-      godot
+      piper
+      solaar
     ];
   };
 
